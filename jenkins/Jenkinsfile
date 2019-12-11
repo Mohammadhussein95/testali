@@ -14,31 +14,40 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                             
+                
+ //              script{
+                
+                    currentBuild.displayName = "qra-${BUILD_NUMBER}${BUILD_ID}"
+                    
+//                               
             }
         }
         
         
-          stage('Results') {
+   stage('Results') {
        
-              steps {
-                    archiveArtifacts artifacts: 'build/libs/*.jar'
-                        }
-                   }
-
+       steps {
+      archiveArtifacts artifacts: 'build/libs/*.jar'
+               }
+         }
+/*        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+ */    
         
         stage('Upload') {
             
             steps {
-            
             s3Upload(file:'file.txt', bucket:'qraapi', path:'build/libs')
-             
-              }
+            }
         } 
         
     }
 }
-
-
-
-
