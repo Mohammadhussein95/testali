@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script{
             s3Upload(
-               file:'file.txt', 
+               file:'qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
                bucket: 'qra-artifacts', 
                path: './qra-${BUILD_NUMBER}${BUILD_ID}.jar')
                 }
