@@ -44,7 +44,7 @@ pipeline {
         
         stage('Upload') {
             
-            stage {
+            steps {
                 script{
             s3Upload(
                 file:'file.txt', 
