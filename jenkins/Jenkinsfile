@@ -15,11 +15,11 @@ pipeline {
             steps {
                 sh 'mvn -B -DskipTests clean package'
                 
- //              script{
+               script{
                 
                     currentBuild.displayName = "qra-${BUILD_NUMBER}${BUILD_ID}"
                     
-//                               
+               }                              
             }
         }
         
