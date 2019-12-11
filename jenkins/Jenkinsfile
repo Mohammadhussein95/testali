@@ -51,7 +51,7 @@ pipeline {
             s3Upload(
                 file:'file.txt', 
                 bucket:'qraapi', 
-                path:'./target/qra-${BUILD_NUMBER}${BUILD_ID}.jar')
+                path:'./qra-${BUILD_NUMBER}${BUILD_ID}.jar')
                 }
 
             }
