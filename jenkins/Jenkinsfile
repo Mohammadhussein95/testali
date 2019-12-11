@@ -48,13 +48,17 @@ pipeline {
             
             steps {
                 script{
-            s3Upload(
+                    withAWS(region:'eu-central-1') {
+          s3Upload(
                 
                bucket: 'qra-artifacts',
     
                file:'qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
                 
                path: './qra-${BUILD_NUMBER}${BUILD_ID}.jar')
+                    
+                    }
+  
                 }
 
             }
