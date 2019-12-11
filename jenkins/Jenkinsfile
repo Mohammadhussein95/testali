@@ -29,7 +29,7 @@ pipeline {
        steps {
 //           sh "mkdir -p build/libs" 
 //           archiveArtifacts artifacts:''
-             sh " mv ./target/my-app-1.0-SNAPSHOT.jar 'qra-${BUILD_NUMBER}${BUILD_ID}.jar' "
+             sh " mv ./target/my-app-1.0-SNAPSHOT.jar 'qra-${BUILD_NUMBER}.jar' "
                }
          }
 /*        stage('Test') {
@@ -49,9 +49,9 @@ pipeline {
             steps {
                 script{
                     
-                    s3Upload(  entries: [[bucket: 'qra-artifacts/qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
+                    s3Upload(  entries: [[bucket: 'qra-artifacts/qra-${BUILD_NUMBER}.jar', 
                                         selectedRegion: 'eu-central-1', 
-                                        sourceFile: 'qra-${BUILD_NUMBER}${BUILD_ID}.jar' ]], 
+                                        sourceFile: 'qra-${BUILD_NUMBER}.jar' ]], 
                                         profileName: 'jenkins_s3')
 
                 /*  s3Upload(
