@@ -28,8 +28,8 @@ pipeline {
        
        steps {
       archiveArtifacts artifacts: 'build/libs/*.jar',
-   }
-  }
+               }
+         }
 /*        stage('Test') {
             steps {
                 sh 'mvn test'
