@@ -29,7 +29,7 @@ pipeline {
        steps {
 //           sh "mkdir -p build/libs" 
 //           archiveArtifacts artifacts:''
-             sh " mv my-app-1.0-SNAPSHOT.jar 'qra-${BUILD_NUMBER}${BUILD_ID}' "
+             sh " mv ./target/my-app-1.0-SNAPSHOT.jar 'qra-${BUILD_NUMBER}${BUILD_ID}' "
                }
          }
 /*        stage('Test') {
