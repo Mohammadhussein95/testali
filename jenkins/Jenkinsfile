@@ -28,7 +28,8 @@ pipeline {
        
        steps {
 //           sh "mkdir -p build/libs" 
-           archiveArtifacts artifacts: 'build/libs/**/*.jar'
+//           archiveArtifacts artifacts:''
+             sh " mv my-app-1.0-SNAPSHOT.jar 'qra-${BUILD_NUMBER}${BUILD_ID}' "
                }
          }
 /*        stage('Test') {
@@ -50,7 +51,7 @@ pipeline {
             s3Upload(
                 file:'file.txt', 
                 bucket:'qraapi', 
-                path:'build/libs/**/')
+                path:'./target/my-app-1.0-SNAPSHOT.jar')
                 }
 
             }
