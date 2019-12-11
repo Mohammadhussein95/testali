@@ -27,8 +27,8 @@ pipeline {
    stage('Results') {
        
        steps {
-           sh "mkdir -p build/libs" 
-           archiveArtifacts artifacts: 'build/libs/*.jar'
+//           sh "mkdir -p build/libs" 
+           archiveArtifacts artifacts: 'test.jar'
                }
          }
 /*        stage('Test') {
@@ -50,7 +50,7 @@ pipeline {
             s3Upload(
                 file:'file.txt', 
                 bucket:'qraapi', 
-                path:'build/libs')
+                path:'test.jar')
                 }
 
             }
