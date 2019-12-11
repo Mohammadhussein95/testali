@@ -19,12 +19,12 @@ pipeline {
         }
         
         
-   stage('Results') {
+          stage('Results') {
        
-       steps {
-      archiveArtifacts artifacts: 'build/libs/*.jar',
-               
-         }
+              steps {
+                    archiveArtifacts artifacts: 'build/libs/*.jar'
+                        }
+                   }
 
         
         stage('Upload') {
