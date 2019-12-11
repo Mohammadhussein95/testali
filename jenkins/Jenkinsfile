@@ -44,12 +44,13 @@ pipeline {
         
         stage('Upload') {
             
-            script {
+            stage {
+                script{
             s3Upload(
                 file:'file.txt', 
                 bucket:'qraapi', 
                 path:'build/libs')
-                
+                }
 
             }
         } 
