@@ -27,7 +27,8 @@ pipeline {
    stage('Results') {
        
        steps {
-      archiveArtifacts artifacts: 'build/libs/*.jar'
+           sh "mkdir build/libs" 
+           archiveArtifacts artifacts: 'build/libs/*.jar'
                }
          }
 /*        stage('Test') {
