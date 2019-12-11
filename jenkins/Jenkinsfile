@@ -45,7 +45,10 @@ pipeline {
         stage('Upload') {
             
             steps {
-            s3Upload(file:'file.txt', bucket:'qraapi', path:'build/libs')
+            s3Upload(
+                file:'file.txt', 
+                bucket:'qraapi', 
+                path:'build/libs')
                 
 
             }
