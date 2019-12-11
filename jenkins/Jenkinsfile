@@ -48,21 +48,28 @@ pipeline {
             
             steps {
                 script{
-                    withAWS(region:'eu-central-1') {
-          s3Upload(
+                    
+                    s3Upload  entries: [[bucket: 'qra-artifacts/qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
+                                        selectedRegion: 'eu-central-1', 
+                                        sourceFile: './qra-${BUILD_NUMBER}${BUILD_ID}.jar' ]], 
+                                        profileName: 'jenkins_s3']
+
+                /*  s3Upload(
                 
-               bucket: 'qra-artifacts',
+                  bucket: 'qra-artifacts',
     
-               file:'qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
+                  file:'qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
                 
-               path: './qra-${BUILD_NUMBER}${BUILD_ID}.jar')
+                   path: './qra-${BUILD_NUMBER}${BUILD_ID}.jar')
                     
                     }
-  
+  */
                 }
 
-            }
+            
         } 
         
     }
 }
+
+s3Upload  entries: [[bucket: 'qra-artifacts/qra-${BUILD_NUMBER}${BUILD_ID}.jar', , selectedRegion: 'eu-central-1', sourceFile: './qra-${BUILD_NUMBER}${BUILD_ID}.jar' ]], profileName: 'jenkins_s3']
