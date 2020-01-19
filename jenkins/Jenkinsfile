@@ -17,7 +17,7 @@ pipeline {
                 
                script{
                 
-                    currentBuild.displayName = "qra-${BUILD_NUMBER}${BUILD_ID}"
+                    currentBuild.displayName = "${BUILD_ID}"
                     
                }                              
             }
@@ -27,48 +27,23 @@ pipeline {
    stage('Results') {
        
        steps {
-//           sh "mkdir -p build/libs" 
-//           archiveArtifacts artifacts:''
+
              sh " mv ./target/my-app-1.0-SNAPSHOT.jar 'ali.jar' "
                }
          }
-/*        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
- */    
+  
         
-        stage('Upload') {
+        stage('buildimage') {
             
             steps {
-                script{
+                        docker.build("ali-image", ".") 
                     
-                    s3Upload(  entries: [[bucket: 'qra-artifacts/qra-${BUILD_NUMBER}.jar', 
-                                        selectedRegion: 'eu-central-1', 
-                                        sourceFile: 'qra-${BUILD_NUMBER}.jar' ]], 
-                                        profileName: 'jenkins_s3')
-
-                /*  s3Upload(
-                
-                  bucket: 'qra-artifacts',
-    
-                  file:'qra-${BUILD_NUMBER}${BUILD_ID}.jar', 
-                
-                   path: './qra-${BUILD_NUMBER}${BUILD_ID}.jar')
-                    
-                    }
-  */
+         
                 }
 
             } 
         } 
         
     }
-}
+
 
