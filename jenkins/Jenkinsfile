@@ -36,8 +36,9 @@ pipeline {
         stage('buildimage') {
             
             steps {
-                        docker.build("ali-image", ".") 
-                    
+                script {
+                    docker.build("ali-image", ".") 
+                 }   
          
                 }
 
