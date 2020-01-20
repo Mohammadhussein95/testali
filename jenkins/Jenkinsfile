@@ -38,17 +38,14 @@ pipeline {
          }
   
         
-  /*      stage('buildimage') {
+        stage('buildimage') {
             
             steps {
-                script {
-
-                  docker.build("ali-image", ".") 
-                 }   
-         
+                
+                   sh './jenkins/scripts/deliver.sh'         
                 }
 
-            } */
+            } 
         } 
         
     }
