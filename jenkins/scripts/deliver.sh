@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker.build("aliimage", "/var/lib/jenkins/workspace/testali")  
+docker build -t aliimage /var/lib/jenkins/workspace/testali  
