@@ -23,7 +23,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Archive production artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: 1st
-          path: 1st
+      uses: actions/upload-artifact@v1
+      with:
+        name: 1st
+        path: 1st
