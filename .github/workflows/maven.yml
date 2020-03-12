@@ -25,5 +25,5 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: 1st
-        path: 1st
+        name: src
+        path: src
